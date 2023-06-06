@@ -34,14 +34,9 @@ if (!function_exists('numberHelper')) {
             '0' => '०',
         ];
         if($locale == 'np') {
-            $returnNumber = preg_replace_callback('/[0-9]/', function ($matches) use ($numberMap) {
-                return $numberMap[$matches[0]];
-            }, $number);
+            $returnNumber = str_replace(array_keys($numberMap), array_values($numberMap), $number);
         } elseif ($locale == 'en') {
-            $numberMapReverse = array_flip($numberMap);
-            $returnNumber = preg_replace_callback('/[१२३४५६७८९०]/', function ($matches) use ($numberMapReverse) {
-                return $numberMapReverse[iconv($matches[0])];
-            }, $number);
+            $returnNumber = str_replace(array_values($numberMap), array_keys($numberMap), $number);
         }
         return $returnNumber;
     }
