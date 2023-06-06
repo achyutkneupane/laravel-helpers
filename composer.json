@@ -1,0 +1,19 @@
+{
+    "name": "achyutkneupane/laravel-helpers",
+    "description": "Ready to use Laravel Helpers",
+    "keywords": ["laravel", "helpers", "laravel-helpers", "nepal"],
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Achyut Neupane",
+            "email": "achyutkneupane@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0"
+    }
+}
