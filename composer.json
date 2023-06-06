@@ -1,6 +1,10 @@
 {
-    "name": "achyutkneupane/laravel-helpers",
+    "name": "achyutneupane/laravel-helpers",
     "description": "Ready to use Laravel Helpers",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+
     "keywords": ["laravel", "helpers", "laravel-helpers", "nepal"],
     "autoload": {
         "files": [
@@ -15,7 +19,9 @@
     "authors": [
         {
             "name": "Achyut Neupane",
-            "email": "achyutkneupane@gmail.com"
+            "email": "achyutkneupane@gmail.com",
+            "homepage": "https://achyut.com.np",
+            "role": "Developer"
         }
     ],
     "require": {
@@ -23,6 +29,5 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^7.0|^8.0|^9.0|^10.0"
-    },
-    "minimum-stability": "dev"
+    }
 }
