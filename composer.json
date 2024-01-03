@@ -3,13 +3,16 @@
     "description": "Ready to use Laravel Helpers",
     "type": "library",
     "license": "MIT",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
 
     "keywords": ["laravel", "helpers", "laravel-helpers", "nepal"],
     "autoload": {
         "files": [
             "src/helpers.php"
-        ]
+        ],
+        "psr-4": {
+            "AchyutN\\Traits\\": "src/Traits/"
+        }
     },
     "autoload-dev": {
         "psr-4": {
@@ -25,7 +28,11 @@
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^8.0",
+        "dipesh79/laravel-user-logs": "^1.4.2",
+        "rap2hpoutre/laravel-log-viewer": "^2.3.0",
+        "spatie/laravel-medialibrary": "^11.0.3",
+        "cviebrock/eloquent-sluggable": "^10.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.0|^8.0|^9.0|^10.0"
