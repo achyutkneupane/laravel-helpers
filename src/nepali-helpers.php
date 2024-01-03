@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Session;
  * Helpers for Nepali English Conversions
  */
 
-if (!function_exists('numberHelper')) {
+if (!function_exists('english_nepali_number')) {
     /**
      *
      * Function to convert number to Nepali or English according to locale
