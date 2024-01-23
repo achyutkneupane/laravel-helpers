@@ -38,7 +38,7 @@
         "php": "^8.0",
         "dipesh79/laravel-user-logs": "^1.4.2",
         "rap2hpoutre/laravel-log-viewer": "^2.3.0",
-        "spatie/laravel-medialibrary": "^11.0.3",
+        "spatie/laravel-medialibrary": "^10.0",
         "cviebrock/eloquent-sluggable": "^10.0"
     },
     "require-dev": {
