@@ -14,7 +14,8 @@
             "AchyutN\\Traits\\": "src/Traits/",
             "AchyutN\\Rules\\": "src/Rules/",
             "AchyutN\\Scope\\": "src/Scope/",
-            "AchyutN\\Pagination\\": "src/Pagination/"
+            "AchyutN\\Pagination\\": "src/Pagination/",
+            "AchyutN\\Controller\\": "src/Controller/"
         }
     },
     "autoload-dev": {
