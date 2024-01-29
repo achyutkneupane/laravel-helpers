@@ -1,6 +1,6 @@
 <?php
 
-namespace AchyutN\Pagination;
+namespace AchyutN\LaravelHelpers\Pagination;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 

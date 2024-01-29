@@ -2,7 +2,7 @@
 
 namespace AchyutN\LaravelHelpers;
 
-use AchyutN\Pagination\CustomPaginator;
+use AchyutN\LaravelHelpers\Pagination\CustomPaginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\ServiceProvider;
 

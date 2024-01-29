@@ -1,6 +1,6 @@
 <?php
 
-namespace AchyutN\Controller;
+namespace AchyutN\LaravelHelpers\Controller;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Log;
