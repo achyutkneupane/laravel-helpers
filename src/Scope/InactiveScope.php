@@ -1,6 +1,6 @@
 <?php
 
-namespace AchyutN\Scope;
+namespace AchyutN\LaravelHelpers\Scope;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;

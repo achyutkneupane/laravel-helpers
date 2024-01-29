@@ -11,11 +11,7 @@
             "src/helpers.php"
         ],
         "psr-4": {
-            "AchyutN\\Traits\\": "src/Traits/",
-            "AchyutN\\Rules\\": "src/Rules/",
-            "AchyutN\\Scope\\": "src/Scope/",
-            "AchyutN\\Pagination\\": "src/Pagination/",
-            "AchyutN\\Controller\\": "src/Controller/"
+            "AchyutN\\LaravelHelpers\\": "src/"
         }
     },
     "autoload-dev": {

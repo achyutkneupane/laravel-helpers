@@ -1,6 +1,6 @@
 <?php
 
-namespace AchyutN\Traits;
+namespace AchyutN\LaravelHelpers\Traits;
 
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;

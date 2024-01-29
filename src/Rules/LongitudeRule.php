@@ -1,6 +1,6 @@
 <?php
 
-namespace AchyutN\Rules;
+namespace AchyutN\LaravelHelpers\Rules;
 
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;

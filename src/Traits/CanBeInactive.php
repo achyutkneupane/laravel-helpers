@@ -1,8 +1,8 @@
 <?php
 
-namespace AchyutN\Traits;
+namespace AchyutN\LaravelHelpers\Traits;
 
-use AchyutN\Scope\InactiveScope;
+use AchyutN\LaravelHelpers\Scope\InactiveScope;
 
 trait CanBeInactive
 {
