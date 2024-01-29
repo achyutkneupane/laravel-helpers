@@ -2,11 +2,14 @@
 
 namespace AchyutN\Controller;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
-class ApiBaseController extends Controller
+class ApiBaseController extends BaseController
 {
+    use AuthorizesRequests, ValidatesRequests;
     public function api_success($data,$message)
     {
         return response()->json([
