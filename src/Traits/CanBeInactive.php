@@ -50,4 +50,29 @@ trait CanBeInactive
         return $this->qualifyColumn($this->getInactiveAtColumn());
     }
 
+    /**
+     * Inactivate the model.
+     *
+     * @return bool
+     */
+    public function setInactive(): bool
+    {
+        $this->{$this->getInactiveAtColumn()} = $this->freshTimestamp();
+        return $this->save();
+    }
+
+    /**
+     * Activate the model.
+     *
+     * @return bool
+     */
+
+    public function setActive(): bool
+    {
+        $this->{$this->getInactiveAtColumn()} = null;
+        return $this->save();
+    }
+
+
+
 }
