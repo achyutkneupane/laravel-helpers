@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "AchyutN\\LaravelHelpers\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -40,7 +40,8 @@
         "cviebrock/eloquent-sluggable": "^10.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.0|^8.0|^9.0|^10.0"
+        "phpunit/phpunit": "^7.0|^8.0|^9.0|^10.0",
+        "orchestra/testbench": "^8.19"
     },
     "extra": {
         "laravel": {
