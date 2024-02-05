@@ -41,6 +41,8 @@ abstract class BaseTestCase extends Orchestra
             'slugEngineOptions' => [],
             'reserved' => null,
             'includeTrashed' => false,
+            'uniqueSuffix' => null,
+            'firstUniqueSuffix' => 2,
         ]);
     }
 
