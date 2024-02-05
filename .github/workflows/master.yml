@@ -7,15 +7,8 @@ on:
 
 jobs:
   tests:
+    name: Run Tests
     runs-on: ubuntu-latest
-
-    strategy:
-      fail-fast: true
-      matrix:
-        php: ['8.0']
-
-    name: PHP ${{ matrix.php }}
-
     steps:
       - name: Checkout Latest Codebase
         uses: actions/checkout@v3
@@ -23,7 +16,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php }}
+          php-version: 8.1
           ini-values: error_reporting=E_ALL
           tools: composer:v2
           coverage: none
@@ -32,4 +25,4 @@ jobs:
         run: composer install --no-interaction --prefer-dist
 
       - name: Execute tests
-        run: vendor/bin/phpunit --verbose
+        run: vendor/bin/phpunit
