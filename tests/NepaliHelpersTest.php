@@ -1,10 +1,8 @@
 <?php
 
-namespace Tests;
+namespace AchyutN\LaravelHelpers\Tests;
 
-use PHPUnit\Framework\TestCase;
-
-class NepaliHelpersTest extends TestCase
+class NepaliHelpersTest extends BaseTestCase
 {
     public function test_english_nepali_number()
     {
