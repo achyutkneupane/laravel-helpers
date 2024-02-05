@@ -14,7 +14,7 @@ abstract class BaseTestCase extends Orchestra
 
         // test migrations
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
-        $this->artisan('migrate', ['--database' => ':memory:'])->run();
+        $this->artisan('migrate')->run();
     }
 
     protected function getEnvironmentSetUp($app): void
