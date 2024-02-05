@@ -2,6 +2,7 @@
 
 namespace AchyutN\LaravelHelpers\Tests;
 
+use AchyutN\LaravelHelpers\Tests\Routes\LatLongRoutes;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -15,6 +16,8 @@ abstract class BaseTestCase extends Orchestra
         // test migrations
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
         $this->artisan('migrate')->run();
+
+        LatLongRoutes::setupLatLongRoutes($this->app->get('router'));
     }
 
     protected function getEnvironmentSetUp($app): void
