@@ -28,6 +28,20 @@ abstract class BaseTestCase extends Orchestra
         // set config
         $app['config']->set('database.default', 'the_test');
         $app['config']->set('test', 'test');
+
+        // sluggable config
+        $app['config']->set('sluggable', [
+            'source' => null,
+            'onUpdate' => false,
+            'separator' => '-',
+            'method' => null,
+            'maxLength' => null,
+            'maxLengthKeepWords' => true,
+            'unique' => true,
+            'slugEngineOptions' => [],
+            'reserved' => null,
+            'includeTrashed' => false,
+        ]);
     }
 
     public function getPackageProviders($app): array
