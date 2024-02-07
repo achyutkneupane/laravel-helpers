@@ -4,7 +4,7 @@ namespace AchyutN\LaravelHelpers\Tests;
 
 use AchyutN\LaravelHelpers\Tests\Models\Active;
 
-class ActiveTest extends BaseTestCase
+class ApproveTest extends BaseTestCase
 {
 
     public function test_change_to_approved()
