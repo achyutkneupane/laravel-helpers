@@ -139,7 +139,7 @@ class ApprovedScope implements Scope
 
             $builder->withoutGlobalScope($this)->whereNotNull(
                 $model->getQualifiedRejectedAtColumn()
-            )->whereNotNull(
+            )->whereNull(
                 $model->getQualifiedApprovedAtColumn()
             );
 
