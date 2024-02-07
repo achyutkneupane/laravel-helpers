@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->text("content");
             $table->dateTime('inactive_at')->nullable();
+            $table->dateTime('approved_at')->nullable();
+            $table->dateTime('rejected_at')->nullable();
             $table->timestamps();
         });
     }
