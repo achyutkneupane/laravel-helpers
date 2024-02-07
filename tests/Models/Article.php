@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    use CanBeInactive, HasTheSlug, CanBeApproved;
+    use CanBeInactive, HasTheSlug;
     protected $guarded = [];
     protected static function factory(int $count = 1): Factory
     {
