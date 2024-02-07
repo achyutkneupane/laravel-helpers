@@ -40,35 +40,41 @@ class ApproveTest extends BaseTestCase
     public function test_count_approved()
     {
         Active::factory()->create(['approved_at' => now()]);
+        Active::factory()->count(10)->create();
         $this->assertEquals(1, Active::count());
     }
 
     public function test_count_rejected()
     {
+        Active::factory()->count(10)->create();
         Active::factory()->create(['rejected_at' => now()]);
         $this->assertEquals(1, Active::withRejected()->count());
     }
 
     public function test_count_all()
     {
+        Active::factory()->count(10)->create();
         Active::factory()->create(['rejected_at' => now()]);
-        $this->assertEquals(1, Active::withAll()->count());
+        $this->assertEquals(11, Active::withAll()->count());
     }
 
     public function test_count_only_pending()
     {
+        Active::factory()->count(10)->create();
         Active::factory()->create(['approved_at' => now()]);
-        $this->assertEquals(0, Active::onlyPending()->count());
+        $this->assertEquals(10, Active::onlyPending()->count());
     }
 
     public function test_count_only_approved()
     {
+        Active::factory()->count(10)->create();
         Active::factory()->create(['approved_at' => now()]);
         $this->assertEquals(1, Active::count());
     }
 
     public function test_count_only_rejected()
     {
+        Active::factory()->count(10)->create();
         Active::factory()->create(['rejected_at' => now()]);
         $this->assertEquals(1, Active::onlyRejected()->count());
     }
