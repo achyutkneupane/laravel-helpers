@@ -2,23 +2,26 @@
 
 namespace AchyutN\LaravelHelpers\Tests\Models;
 
-use AchyutN\LaravelHelpers\Tests\Factories\ArticleFactory;
+use AchyutN\LaravelHelpers\Tests\Factories\ApproveActiveFactory;
 use AchyutN\LaravelHelpers\Traits\CanBeApproved;
 use AchyutN\LaravelHelpers\Traits\CanBeInactive;
-use AchyutN\LaravelHelpers\Traits\HasTheSlug;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class ApproveActive extends Model
 {
-    use CanBeInactive, HasTheSlug;
+    use CanBeInactive, CanBeApproved;
+
+    protected $table = 'approve_active';
+
     protected $guarded = [];
+
     protected static function factory(int $count = 1): Factory
     {
-        if($count && $count > 1) {
-            return ArticleFactory::times($count);
+        if ($count && $count > 1) {
+            return ApproveActiveFactory::times($count);
         } else {
-            return ArticleFactory::new();
+            return ApproveActiveFactory::new();
         }
     }
 }

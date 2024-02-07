@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("articles", function (Blueprint $table) {
+        Schema::create("approves", function (Blueprint $table) {
             $table->id();
-            $table->string("title");
-            $table->string('slug')->nullable();
-            $table->text("content");
-            $table->dateTime('inactive_at')->nullable();
+            $table->text('title');
             $table->dateTime('approved_at')->nullable();
             $table->dateTime('rejected_at')->nullable();
             $table->timestamps();
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists("articles");
+        Schema::dropIfExists("approves");
     }
 };
