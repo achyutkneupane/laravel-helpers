@@ -2,12 +2,12 @@
 
 namespace AchyutN\LaravelHelpers\Tests\Models;
 
-use AchyutN\LaravelHelpers\Tests\Factories\ActiveFactory;
+use AchyutN\LaravelHelpers\Tests\Factories\ApproveFactory;
 use AchyutN\LaravelHelpers\Traits\CanBeApproved;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 
-class Active extends Model
+class Approve extends Model
 {
     use CanBeApproved;
 
@@ -16,9 +16,9 @@ class Active extends Model
     protected static function factory(int $count = 1): Factory
     {
         if ($count && $count > 1) {
-            return ActiveFactory::times($count);
+            return ApproveFactory::times($count);
         } else {
-            return ActiveFactory::new();
+            return ApproveFactory::new();
         }
     }
 }

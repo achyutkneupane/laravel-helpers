@@ -2,14 +2,14 @@
 
 namespace AchyutN\LaravelHelpers\Tests;
 
-use AchyutN\LaravelHelpers\Tests\Models\Active;
+use AchyutN\LaravelHelpers\Tests\Models\Approve;
 
 class ApproveTest extends BaseTestCase
 {
 
     public function test_change_to_approved()
     {
-        $active = Active::factory()->create();
+        $active = Approve::factory()->create();
         $active->setApproved();
         $this->assertFalse($active->approved_at == null);
         $this->assertTrue($active->rejected_at == null);
@@ -17,7 +17,7 @@ class ApproveTest extends BaseTestCase
 
     public function test_change_to_rejected()
     {
-        $active = Active::factory()->create(['approved_at' => now()]);
+        $active = Approve::factory()->create(['approved_at' => now()]);
         $active->setRejected();
         $this->assertTrue($active->rejected_at != null);
         $this->assertTrue($active->approved_at == null);
@@ -25,7 +25,7 @@ class ApproveTest extends BaseTestCase
 
     public function test_change_to_pending()
     {
-        $active = Active::factory()->create(['approved_at' => now()]);
+        $active = Approve::factory()->create(['approved_at' => now()]);
         $active->setPending();
         $this->assertTrue($active->approved_at == null);
         $this->assertTrue($active->rejected_at == null);
@@ -33,50 +33,50 @@ class ApproveTest extends BaseTestCase
 
     public function test_count_pending()
     {
-        Active::factory()->create(['approved_at' => now()]);
-        $this->assertEquals(1, Active::withPending()->count());
+        Approve::factory()->create(['approved_at' => now()]);
+        $this->assertEquals(1, Approve::withPending()->count());
     }
 
     public function test_count_approved()
     {
-        Active::factory()->create(['approved_at' => now()]);
-        Active::factory()->count(10)->create();
-        $this->assertEquals(1, Active::count());
+        Approve::factory()->create(['approved_at' => now()]);
+        Approve::factory()->count(10)->create();
+        $this->assertEquals(1, Approve::count());
     }
 
     public function test_count_rejected()
     {
-        Active::factory()->count(10)->create();
-        Active::factory()->create(['rejected_at' => now()]);
-        $this->assertEquals(1, Active::withRejected()->count());
+        Approve::factory()->count(10)->create();
+        Approve::factory()->create(['rejected_at' => now()]);
+        $this->assertEquals(1, Approve::withRejected()->count());
     }
 
     public function test_count_all()
     {
-        Active::factory()->count(10)->create();
-        Active::factory()->create(['rejected_at' => now()]);
-        $this->assertEquals(11, Active::withAll()->count());
+        Approve::factory()->count(10)->create();
+        Approve::factory()->create(['rejected_at' => now()]);
+        $this->assertEquals(11, Approve::withAll()->count());
     }
 
     public function test_count_only_pending()
     {
-        Active::factory()->count(10)->create();
-        Active::factory()->create(['approved_at' => now()]);
-        $this->assertEquals(10, Active::onlyPending()->count());
+        Approve::factory()->count(10)->create();
+        Approve::factory()->create(['approved_at' => now()]);
+        $this->assertEquals(10, Approve::onlyPending()->count());
     }
 
     public function test_count_only_approved()
     {
-        Active::factory()->count(10)->create();
-        Active::factory()->create(['approved_at' => now()]);
-        $this->assertEquals(1, Active::count());
+        Approve::factory()->count(10)->create();
+        Approve::factory()->create(['approved_at' => now()]);
+        $this->assertEquals(1, Approve::count());
     }
 
     public function test_count_only_rejected()
     {
-        Active::factory()->count(10)->create();
-        Active::factory()->create(['rejected_at' => now()]);
-        $this->assertEquals(1, Active::onlyRejected()->count());
+        Approve::factory()->count(10)->create();
+        Approve::factory()->create(['rejected_at' => now()]);
+        $this->assertEquals(1, Approve::onlyRejected()->count());
     }
 
 }

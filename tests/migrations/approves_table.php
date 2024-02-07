@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create("actives", function (Blueprint $table) {
+        Schema::create("approves", function (Blueprint $table) {
             $table->id();
             $table->text('title');
             $table->dateTime('approved_at')->nullable();
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists("actives");
+        Schema::dropIfExists("approves");
     }
 };

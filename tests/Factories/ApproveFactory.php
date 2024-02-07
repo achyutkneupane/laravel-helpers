@@ -2,17 +2,17 @@
 
 namespace AchyutN\LaravelHelpers\Tests\Factories;
 
-use AchyutN\LaravelHelpers\Tests\Models\Active;
+use AchyutN\LaravelHelpers\Tests\Models\Approve;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ActiveFactory extends Factory
+class ApproveFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var class-string<\Illuminate\Database\Eloquent\Model>
      */
-    protected $model = Active::class;
+    protected $model = Approve::class;
 
     /**
      * Define the model's default state.
