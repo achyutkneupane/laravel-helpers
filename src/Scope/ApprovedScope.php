@@ -94,7 +94,7 @@ class ApprovedScope implements Scope
      */
     protected function addOnlyPending(Builder $builder): void
     {
-        $builder->macro('OnlyPending', function (Builder $builder) {
+        $builder->macro('onlyPending', function (Builder $builder) {
             $model = $builder->getModel();
 
             $builder->withoutGlobalScope($this)->whereNull(
