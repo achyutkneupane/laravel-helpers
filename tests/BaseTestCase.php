@@ -3,6 +3,7 @@
 namespace AchyutN\LaravelHelpers\Tests;
 
 use AchyutN\LaravelHelpers\Tests\Routes\LatLongRoutes;
+use AchyutN\LaravelHelpers\Tests\Routes\PasswordMatchRoutes;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -18,6 +19,8 @@ abstract class BaseTestCase extends Orchestra
         $this->artisan('migrate')->run();
 
         LatLongRoutes::setupLatLongRoutes($this->app->get('router'));
+        PasswordMatchRoutes::setupPasswordMatchRoutes($this->app->get('router'));
+
     }
 
     protected function getEnvironmentSetUp($app): void
