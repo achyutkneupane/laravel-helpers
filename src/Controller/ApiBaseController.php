@@ -28,4 +28,15 @@ class ApiBaseController extends BaseController
             'message' => $data->getMessage()
         ], $data->getCode());
     }
+
+    public function custom_error($status,$message)
+    {
+        return response()->json(
+            [
+                'status' => $status,
+                'data' => [],
+                'message' => $message
+            ], $status
+        );
+    }
 }
