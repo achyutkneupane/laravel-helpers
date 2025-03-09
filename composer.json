@@ -3,7 +3,7 @@
     "description": "Ready to use Laravel Helpers",
     "type": "library",
     "license": "MIT",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
 
     "keywords": ["laravel", "helpers", "laravel-helpers", "nepal"],
     "autoload": {
@@ -35,7 +35,6 @@
     "require": {
         "php": ">7.2",
         "dipesh79/laravel-user-logs": "^1.6.1",
-        "rap2hpoutre/laravel-log-viewer": "^2.3.0",
         "spatie/laravel-medialibrary": ">=8.0",
         "cviebrock/eloquent-sluggable": "^10.0|^11.0"
     },
