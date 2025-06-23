@@ -10,7 +10,7 @@ trait HasTheMedia
     use InteractsWithMedia;
     public function cover()
     {
-        return $this->getMedia('cover')->count() ? $this->getMedia('cover')->last()->getUrl() : null;
+        return $this->getMedia('cover')->count() ? $this->getMedia('cover')->last()->getUrl('original') : null;
     }
 
     public function small_cover()
@@ -30,6 +30,9 @@ trait HasTheMedia
 
     public function registerMediaConversions(Media $media = null): void
     {
+        $this->addMediaConversion('original')
+            ->format('webp')
+            ->nonQueued();
         $this->addMediaConversion('small')
             ->format('webp')
             ->width(150)
