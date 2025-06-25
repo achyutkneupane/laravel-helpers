@@ -24,14 +24,14 @@ You can use following traits for your models:
 
 This trait is used to generate slug for your model. It uses [cviebrock/eloquent-sluggable](https://github.com/cviebrock/eloquent-sluggable) package.
 
-`Note:` You must have `slug` column in your table. And the source is always `title` column but can be changed by setting the `$sluggableColumn` property in your model.
+`Note:` You must have `slug` column in your table. And the source is by default `title` column but can be changed by setting the `$sluggableColumn` property in your model.
 
 ```php
 <?php
 
 namespace App\Models;
 
-use AchyutN\Traits\HasTheSlug;
+use AchyutN\LaravelHelpers\Traits\HasTheSlug;
 
 class Post extends Model
 {
