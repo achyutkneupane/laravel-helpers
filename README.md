@@ -48,22 +48,23 @@ This trait is used to add media conversions over the `HasMedia` trait from [spat
 namespace App\Models;
 
 use AchyutN\Traits\HasTheMedia;
+use Spatie\MediaLibrary\HasMedia;
 
-class Post extends Model
+class Post extends Model implements HasMedia
 {
     use HasTheMedia;
 }
 ```
 
 You can use: 
-- `cover()` to get original image.
+- `cover()` to get original image (in format: `WebP`).
 - `small_cover()` to get small image (in format: `WebP`).
 - `medium_cover()` to get medium image (in format: `WebP`).
 - `large_cover()` to get large image (in format: `WebP`).
 
 #### `HasTheDashboardTraits`
 
-This trait is used to add `HasTheSlug` and `HasTheMedia` traits to your model along with the `HasLog` trait from [Dipesh79/LaravelUserLogs](https://github.com/Dipesh79/LaravelUserLogs) package.
+This trait is used to add `HasTheSlug` and `HasTheMedia` traits to your model.
 
 ```php
 <?php

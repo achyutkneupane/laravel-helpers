@@ -34,7 +34,6 @@
     ],
     "require": {
         "php": ">7.2",
-        "dipesh79/laravel-user-logs": "^1.6.1",
         "spatie/laravel-medialibrary": ">=8.0",
         "cviebrock/eloquent-sluggable": ">=11.0"
     },
