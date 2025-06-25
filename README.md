@@ -270,3 +270,33 @@ To select value based on the locale.
 echo(english_nepali('नेपाली', 'Nepali', 'en')); // Nepali
 echo(english_nepali('नेपाली', 'Nepali', 'ne')); // नेपाली
 ```
+
+---
+
+### Validations
+
+#### LatitudeRule
+
+This rule ensures that the given value is a **numeric latitude** within the valid range `-90` to `90`.
+
+```php
+use AchyutN\LaravelHelpers\Rules\LatitudeRule;
+
+$request->validate([
+    'latitude' => [new LatitudeRule()],
+]);
+```
+
+---
+
+#### LongitudeRule
+
+This rule ensures that the given value is a **numeric longitude** within the valid range `-180` to `180`.
+
+```php
+use AchyutN\LaravelHelpers\Rules\LongitudeRule;
+
+$request->validate([
+    'longitude' => [new LongitudeRule()],
+]);
+```
