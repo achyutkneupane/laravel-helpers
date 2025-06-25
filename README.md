@@ -47,7 +47,7 @@ This trait is used to add media conversions over the `HasMedia` trait from [spat
 
 namespace App\Models;
 
-use AchyutN\Traits\HasTheMedia;
+use AchyutN\LaravelHelpers\Traits\HasTheMedia;
 use Spatie\MediaLibrary\HasMedia;
 
 class Post extends Model implements HasMedia
@@ -85,11 +85,87 @@ This trait is used to add `HasTheSlug` and `HasTheMedia` traits to your model.
 
 namespace App\Models;
 
-use AchyutN\Traits\HasTheDashboardTraits;
+use AchyutN\LaravelHelpers\Traits\HasTheDashboardTraits;
 
 class Post extends Model
 {
     use HasTheDashboardTraits;
+}
+```
+
+#### `CanBeApproved`
+
+This trait adds **approval logic** to your Eloquent models using timestamp-based flags (`approved_at`, `rejected_at`). By default, only **approved** records are returned in queries due to a global scope.
+
+
+Make sure your model's table includes `approved_at` and `rejected_at` columns:
+
+```php
+Schema::table('posts', function (Blueprint $table) {
+    $table->timestamp('approved_at')->nullable();
+    $table->timestamp('rejected_at')->nullable();
+});
+```
+
+Then, use the trait in your model:
+
+```php
+use AchyutN\LaravelHelpers\Traits\CanBeApproved;
+
+class Post extends Model
+{
+    use CanBeApproved;
+}
+```
+
+##### Methods
+
+| Method         | Description                                                                |
+|----------------|----------------------------------------------------------------------------|
+| `setApproved()`| Marks the model as approved (sets `approved_at`, clears `rejected_at`)     |
+| `setRejected()`| Marks the model as rejected (sets `rejected_at`, clears `approved_at`)     |
+| `setPending()` | Resets approval state (clears both `approved_at` and `rejected_at`)        |
+
+```php
+$post->setApproved();
+$post->setRejected();
+$post->setPending();
+```
+
+##### Scope
+
+The trait adds a global scope to only include **approved** records. You can override it using the following query macros:
+
+| Macro               | Description                                                  |
+|---------------------|--------------------------------------------------------------|
+| `withPending()`     | Includes approved and pending records                        |
+| `onlyPending()`     | Only records where both `approved_at` and `rejected_at` are `null` |
+| `withoutApproved()` | Records that are **not** approved (includes pending & rejected) |
+| `withRejected()`    | Rejected records (`rejected_at` not null, `approved_at` null)|
+| `onlyRejected()`    | Strictly rejected records (regardless of previous approval)  |
+| `withAll()`         | Removes global scope and returns all records                 |
+
+```php
+Post::withPending()->get();
+Post::onlyPending()->get();
+Post::withoutApproved()->get();
+Post::withRejected()->get();
+Post::onlyRejected()->get();
+Post::withAll()->count();
+```
+
+
+##### Custom Column Names
+
+You can override the default column names by defining constants in your model:
+
+```php
+class Post extends Model
+{
+    use CanBeApproved;
+
+    public const APPROVED_AT = 'approved_time';
+    public const REJECTED_AT = 'rejected_time';
 }
 ```
 
