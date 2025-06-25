@@ -33,7 +33,7 @@
         }
     ],
     "require": {
-        "php": ">7.2",
+        "php": ">=7.4",
         "spatie/laravel-medialibrary": ">=8.0",
         "cviebrock/eloquent-sluggable": ">=11.0"
     },

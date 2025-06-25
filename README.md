@@ -24,7 +24,7 @@ You can use following traits for your models:
 
 This trait is used to generate slug for your model. It uses [cviebrock/eloquent-sluggable](https://github.com/cviebrock/eloquent-sluggable) package.
 
-`Note: ` You must have `slug` column in your table and the source column for the slug should be `title`. 
+`Note: ` You must have `slug` column in your table. 
 
 ```php
 <?php
@@ -36,6 +36,8 @@ use AchyutN\Traits\HasTheSlug;
 class Post extends Model
 {
     use HasTheSlug;
+
+    protected string $sluggableColumn = 'name';
 }
 ```
 
