@@ -92,7 +92,7 @@ use AchyutN\LaravelHelpers\Models\MediaModel;
 
 class Post extends MediaModel
 {
-    protected array $collections = ['cover', 'gallery', 'profile'];
+    protected array $theMediaCollections = ['cover', 'gallery', 'profile'];
 }
 ```
 
@@ -102,7 +102,9 @@ You can then access these collections using the same methods as above:
 $post = Post::find(1);
 
 echo $post->gallery(); // Gallery collection image
-echo $post->big_cover(); // Large cover image
+echo $post->big_gallery(); // Large gallery image
+echo $post->profile(); // Profile collection image
+echo $post->medium_profile(); // Medium profile image
 ```
 
 ---

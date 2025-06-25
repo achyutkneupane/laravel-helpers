@@ -10,20 +10,13 @@ trait HasTheMedia
     use InteractsWithMedia;
 
     /**
-     * The media collections to register accessors for.
-     *
-     * @var array<string>
-     */
-    public array $collections = ['cover'];
-
-    /**
      * @param $method
      * @param $parameters
      * @return mixed|string|null
      */
     public function __call($method, $parameters)
     {
-        foreach ($this->collections as $collection) {
+        foreach ($this->getMediaAccessorCollections() as $collection) {
             foreach (['original', 'small', 'medium', 'big'] as $conversion) {
                 $expected = $conversion === 'original' ? $collection : "{$conversion}_{$collection}";
 
@@ -63,5 +56,10 @@ trait HasTheMedia
             ->width(800)
             ->height(420)
             ->nonQueued();
+    }
+
+    public function getMediaAccessorCollections(): array
+    {
+        return property_exists($this, 'theMediaCollections') ? $this->theMediaCollections : ['cover'];
     }
 }
