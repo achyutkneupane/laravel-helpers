@@ -39,6 +39,8 @@ class Post extends Model
 }
 ```
 
+---
+
 #### `HasTheMedia`
 
 This trait is used to add media conversions over the `HasMedia` trait from [spatie/laravel-medialibrary](https://github.com/spatie/laravel-medialibrary) package.
@@ -76,6 +78,8 @@ You can use:
 - `medium_cover()` to get medium image (in format: `WebP`).
 - `large_cover()` to get large image (in format: `WebP`).
 
+---
+
 #### `HasTheDashboardTraits`
 
 This trait is used to add `HasTheSlug` and `HasTheMedia` traits to your model.
@@ -92,6 +96,8 @@ class Post extends Model
     use HasTheDashboardTraits;
 }
 ```
+
+---
 
 #### `CanBeApproved`
 
@@ -154,7 +160,6 @@ Post::onlyRejected()->get();
 Post::withAll()->count();
 ```
 
-
 ##### Custom Column Names
 
 You can override the default column names by defining constants in your model:
@@ -168,6 +173,76 @@ class Post extends Model
     public const REJECTED_AT = 'rejected_time';
 }
 ```
+
+---
+
+#### `CanBeInactive`
+
+This trait allows Eloquent models to be marked as **inactive** or **active**, using a nullable `inactive_at` timestamp column. By default, only **active** models are returned from queries due to a global scope.
+
+##### Setup
+
+Ensure your model's table includes an `inactive_at` column:
+
+```php
+Schema::table('articles', function (Blueprint $table) {
+    $table->timestamp('inactive_at')->nullable();
+});
+```
+
+Then, use the trait in your model:
+
+```php
+use AchyutN\LaravelHelpers\Traits\CanBeInactive;
+
+class Article extends Model
+{
+    use CanBeInactive;
+}
+```
+
+##### Methods
+
+| Method         | Description                                                       |
+|----------------|-------------------------------------------------------------------|
+| `setInactive()`| Marks the model as inactive (sets `inactive_at` to current time)  |
+| `setActive()`  | Marks the model as active (clears the `inactive_at` column)       |
+
+```php
+$article->setInactive();
+$article->setActive();
+```
+
+##### Scopes
+
+This trait applies a global scope to include **only active** models by default. Use the following macros to override:
+
+| Macro               | Description                                                  |
+|---------------------|--------------------------------------------------------------|
+| `withInactive()`    | Includes both active and inactive models                     |
+| `withoutInactive()` | Excludes inactive models (same as default scope)             |
+| `onlyInactive()`    | Returns only inactive models                                 |
+
+```php
+Article::withInactive()->get();
+Article::onlyInactive()->get();
+Article::withoutInactive()->count();
+```
+
+##### Custom Column Name
+
+You can override the column name by defining a constant in your model:
+
+```php
+class Article extends Model
+{
+    use CanBeInactive;
+
+    public const INACTIVE_AT = 'disabled_at';
+}
+```
+
+---
 
 ### Nepali Helpers
 
