@@ -80,6 +80,31 @@ You can use:
 - `medium_cover()` to get medium image (in format: `WebP`).
 - `large_cover()` to get large image (in format: `WebP`).
 
+##### Multiple Collections
+
+You can also define multiple collections in your model. For example, if you want to have a `gallery` and a `profile` collection along with the default `cover` collection, you can do it like this:
+
+```php
+
+namespace App\Models;
+
+use AchyutN\LaravelHelpers\Models\MediaModel;
+
+class Post extends MediaModel
+{
+    protected array $mediaCollections = ['cover', 'gallery', 'profile'];
+}
+```
+
+You can then access these collections using the same methods as above:
+
+```php
+$post = Post::find(1);
+
+echo $post->gallery(); // Gallery collection image
+echo $post->big_cover(); // Large cover image
+```
+
 ---
 
 #### `HasTheDashboardTraits`
