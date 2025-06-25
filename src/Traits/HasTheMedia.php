@@ -8,24 +8,34 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 trait HasTheMedia
 {
     use InteractsWithMedia;
-    public function cover()
+
+    /**
+     * The media collections to register accessors for.
+     *
+     * @var array<string>
+     */
+    protected array $mediaCollections = ['cover'];
+
+    public function __call(string $method, array $parameters)
     {
-        return $this->getMedia('cover')->count() ? $this->getMedia('cover')->last()->getUrl('original') : null;
+        foreach ($this->mediaCollections as $collection) {
+            foreach (['original', 'small', 'medium', 'big'] as $conversion) {
+                $expected = $conversion === 'original' ? $collection : "{$conversion}_{$collection}";
+
+                if ($method === $expected) {
+                    return $this->getMediaUrlFrom($collection, $conversion);
+                }
+            }
+        }
+
+        return parent::__call($method, $parameters);
     }
 
-    public function small_cover()
+    public function getMediaUrlFrom(string $collection, string $conversion = 'original'): ?string
     {
-        return $this->getMedia('cover')->count() ? $this->getMedia('cover')->last()->getUrl('small') : null;
-    }
+        $media = $this->getMedia($collection)->last();
 
-    public function medium_cover()
-    {
-        return $this->getMedia('cover')->count() ? $this->getMedia('cover')->last()->getUrl('medium') : null;
-    }
-
-    public function big_cover()
-    {
-        return $this->getMedia('cover')->count() ? $this->getMedia('cover')->last()->getUrl('big') : null;
+        return $media ? $media->getUrl($conversion) : null;
     }
 
     public function registerMediaConversions(Media $media = null): void
