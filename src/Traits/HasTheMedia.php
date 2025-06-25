@@ -16,7 +16,12 @@ trait HasTheMedia
      */
     public array $collections = ['cover'];
 
-    public function __call(string $method, array $parameters)
+    /**
+     * @param $method
+     * @param $parameters
+     * @return mixed|string|null
+     */
+    public function __call($method, $parameters)
     {
         foreach ($this->collections as $collection) {
             foreach (['original', 'small', 'medium', 'big'] as $conversion) {
