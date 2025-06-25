@@ -1,5 +1,7 @@
 <?php
 
+namespace AchyutN\LaravelHelpers\Models;
+
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use AchyutN\LaravelHelpers\Traits\HasTheMedia;

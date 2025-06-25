@@ -56,6 +56,20 @@ class Post extends Model implements HasMedia
 }
 ```
 
+or alternatively, you can extend your model using the `MediaModel` class provided by the package:
+
+```php
+
+namespace App\Models;
+
+use AchyutN\LaravelHelpers\Models\MediaModel;
+
+class Post extends MediaModel
+{
+    //
+}
+```
+
 You can use: 
 - `cover()` to get original image (in format: `WebP`).
 - `small_cover()` to get small image (in format: `WebP`).
