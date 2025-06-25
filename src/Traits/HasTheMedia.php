@@ -14,7 +14,7 @@ trait HasTheMedia
      *
      * @var array<string>
      */
-    protected array $mediaCollections = ['cover'];
+    public array $mediaCollections = ['cover'];
 
     public function __call(string $method, array $parameters)
     {
