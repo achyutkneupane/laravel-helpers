@@ -14,11 +14,11 @@ trait HasTheMedia
      *
      * @var array<string>
      */
-    public array $mediaCollections = ['cover'];
+    public array $collections = ['cover'];
 
     public function __call(string $method, array $parameters)
     {
-        foreach ($this->mediaCollections as $collection) {
+        foreach ($this->collections as $collection) {
             foreach (['original', 'small', 'medium', 'big'] as $conversion) {
                 $expected = $conversion === 'original' ? $collection : "{$conversion}_{$collection}";
 

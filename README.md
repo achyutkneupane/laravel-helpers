@@ -92,7 +92,7 @@ use AchyutN\LaravelHelpers\Models\MediaModel;
 
 class Post extends MediaModel
 {
-    protected array $mediaCollections = ['cover', 'gallery', 'profile'];
+    protected array $collections = ['cover', 'gallery', 'profile'];
 }
 ```
 
