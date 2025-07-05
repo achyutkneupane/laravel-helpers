@@ -4,7 +4,6 @@
     "type": "library",
     "license": "MIT",
     "minimum-stability": "stable",
-
     "keywords": ["laravel", "helpers", "laravel-helpers", "nepal"],
     "autoload": {
         "files": [
