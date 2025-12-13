@@ -27,4 +27,9 @@ trait HasTheSlug
     {
         return property_exists($this, 'sluggableColumn') ? $this->sluggableColumn : 'title';
     }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 }
